@@ -1,5 +1,21 @@
+import java.util.ArrayList;
+
 public class MovieCollection {
-    private Movie[] movieList;
+
+    ArrayList<Movie> movielist = new ArrayList<>();
+
+    //Contructor:
+    public void AddMovie(String movieTittle, String directorName, int yearCreated, int movieLengthInMinutes, boolean movieColour, String movieGenre) {
+        Movie newMovie = new Movie(movieTittle, directorName, movieGenre, yearCreated,  movieLengthInMinutes,  movieColour);
+        movielist.add(newMovie);
+    }
+
+}
+
+
+
+// movie list med normal Arry.
+  /*  private Movie[] movieList;
     int antalFilm = 0;
 
     public MovieCollection() {
@@ -14,7 +30,7 @@ public class MovieCollection {
 
     String newMovie;
 
-    public void newMovie(boolean movieTittle, int directorName, String yearCreated, int movieLengthInMinutes, String movieColour, String movieGenre) {
+    public void newMovie(String movieTittle, int directorName, String yearCreated, int movieLengthInMinutes, String movieColour, String movieGenre) {
 /*
         for (Movie movie : newMovie) {
             String Movie = null;
@@ -23,5 +39,7 @@ public class MovieCollection {
         return;
         int length = movieList.length;
 */
-    }
-}
+
+
+
+

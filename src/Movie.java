@@ -8,7 +8,7 @@ public class Movie {
 
     //contructor
 
-    public Movie(String movieTittle, String directorName, int yearCreated, int movieLengthInMinutes,boolean movieColour, String movieGenre){
+    public Movie(String movieTittle, String directorName, String movieGenre, int yearCreated, int movieLengthInMinutes, boolean movieColour){
         this.movieTittle = movieTittle;
         this.movieGenre = movieGenre;
         this.directorName = directorName;
@@ -17,6 +17,7 @@ public class Movie {
         this.movieColour = movieColour;
     }
 
+    //metoder. de skal bruges i den næste klasse for at inhente data herfra
     public int getMovieLengthInMinutes() {
         return movieLengthInMinutes;
     }

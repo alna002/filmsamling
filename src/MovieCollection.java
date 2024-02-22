@@ -1,16 +1,70 @@
 import java.util.ArrayList;
 
-public class MovieCollection {
+public abstract class MovieCollection {
 
-    ArrayList<Movie> movielist = new ArrayList<>();
+    ArrayList<Movie> movieCollection1;// er er contructoren fra class Movie indhentet.
 
-    //Contructor:
-    public void AddMovie(String movieTittle, String directorName, int yearCreated, int movieLengthInMinutes, boolean movieColour, String movieGenre) {
-        Movie newMovie = new Movie(movieTittle, directorName, movieGenre, yearCreated,  movieLengthInMinutes,  movieColour);
-        movielist.add(newMovie);
+    //Contructor: Det er den ny contructor der skal indholde information fra class Movie. Den skal bagefter over i den næste classe som er en Controller.
+
+// My movielist
+
+    public void MovieCollection() {
+        movieCollection1 = new ArrayList<>();
+        movieCollection1.add(new Movie(" WHO TF DID I MARRY", " ReesaTeesa", "Drama/Horror", 2024, 120, true));
+        movieCollection1.add(new Movie("WHO TF DID I MARRY", "RessaTeesa", "Drama/Horror", 2024, 120, true));
+        movieCollection1.add(new Movie("Surviving Legion", "Reesa Teesa", "Drama/Horror", 2026, 45, true));
     }
 
+    public String AddMovie(String movieTittle, String directorName, String yearCreated, int movieLengthInMinutes, int movieColour, boolean movieGenre) {
+        Movie newMovie = new Movie(movieTittle, directorName, movieGenre, yearCreated, movieLengthInMinutes, movieColour);
+        return movieTittle + " is added to the collection";
+    }
+
+    //As a movie enthusiast I want to see a list of all movies so that I can get an overview of my collection.
+    public void MovieList() {
+        System.out.println("List of movies");
+        for (Movie m : movieCollection1) {
+            System.out.println(m.toString());
+        }
+
+
+    }
+
+    // removing the movie from the list
+    public String removeMoviefromList(String title) {
+        for (int i = 0; i <= movieCollection1.size(); i++) {
+            Movie m = movieCollection1.get(i);
+            if (m.getMovieTittle().equalsIgnoreCase(title)) {
+                String removedMovieTitle = movieCollection1.get(i).getMovieTittle();
+                movieCollection1.remove(i);
+                return removedMovieTitle + " has been removed!";
+            }
+        }
+        return " The movie you seached is not in the list";
+    }
+
+    //As a movie enthusiast I want to search for a specific movie so that I can see details about it.
+//method
+    public String SearchMovie(String tittle) {
+        boolean MovieInMovieList = false;
+        System.out.println("Search results can be seen below.");
+        for (Movie m : movieCollection1) {
+            if (m.getMovieTittle().toLowerCase().contains(tittle)) ;
+            System.out.println(m.toString());
+            MovieInMovieList = true;
+
+        }
+        if (!MovieInMovieList) {
+            System.out.println(" The requested movie is not part of the collection");
+        }
+
+        return " try new search";
+    }
 }
+
+
+
+
 
 
 

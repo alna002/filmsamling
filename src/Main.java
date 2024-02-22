@@ -10,8 +10,8 @@ public class Main {
 
 
         while (true) {
-            System.out.println("Welcome movie collection");
-
+            System.out.println("Welcome movie collection. ");
+            System.out.println("Do you want to add a movie to the collection? ");
             System.out.println(" press 1 to add movie or 2 to end program");
             int menuChoice = imput.nextInt();
 
@@ -35,21 +35,21 @@ imput.nextLine();
                 System.out.println(" year created");
                 int yearCreated = imput.nextInt();
 
-                System.out.println(" Is the movie in colour or black&White? Answer true for colour & false for Black&White");
-                boolean movieColour = imput.nextBoolean();
-                // man kan skrive scanner.nextLine på linjen imellem scanner.nectInt() og linjen unger som er scanner.nextLine();
+                System.out.println(" Is the movie in colour or black&White? Answer Yes for colour or No for Black&White");
 
-
-                myMovies.addnewMovietoMovieList(tittle,genre,movieLength, yearCreated, movieColour, director);
-
-                String moviecolour =" coloured";
-
-                if(!movieColour){
-                    moviecolour = "Black&White";
+              String movieColourstring = imput.next();
+              boolean movieColour;
+                if (movieColourstring.equalsIgnoreCase("yes")){
+                    movieColour = true;
+                }else{
+                    movieColour =false;
                 }
 
-                System.out.println(tittle + " " + genre + " " + movieLength + " " + director + " " + yearCreated + " " + moviecolour);
+                myMovies.addnewMovietoMovieList(tittle,genre,movieLength, yearCreated, movieColour, director);
+                System.out.println(tittle + " " + genre + " " + movieLength + " " + director + " " + yearCreated + " " + movieColour);
                 System.out.println("Movie successfully added to the collection ");
+
+
             } else if (menuChoice==2) {
                 System.out.println("Sad to see you go");
                 break;
@@ -61,4 +61,11 @@ imput.nextLine();
     }
 
 
-    
+
+//Eksempel på hvordan man laver et valg om film er i fave eller ik, med if statement.
+         /*    String isInColour;
+               isInColour= scanner.next();
+                Moviecolour= Boolean.parseBoolean(isInColour.toLowerCase());
+                if(isInColour.equals("ja")){
+                    isInColour= String.valueOf(true);
+                }*/

@@ -46,7 +46,7 @@ public class Movie {
         return yearCreated;
     }
 
-    public boolean isMovieColour() {
+    public boolean getmovieColour() {
         return movieColour;
     }
 
@@ -55,17 +55,16 @@ public class Movie {
     //I don’t want to see strange computer terms in the output, such as null or true/false.
     @Override
     public String toString() {
-        String result = " ";
-        result += movieTittle + " " + movieGenre + " " + directorName+ " " + yearCreated + " " + movieLengthInMinutes;
-        if (movieColour) {
-            result += " coloured ";
+        String result = " ";result +="Title;´:" + " " + movieTittle + "/n" + "  Genre:" + " " +  movieGenre + "/n " + " Director:"+ " " + directorName +
+        "/n " + " Year:"+  " " + yearCreated + " /n" + " Duration:  " + movieLengthInMinutes+ " min /n "+ " Is the movie in colour? "+ " " + movieColour;
+        if (movieColour==true) {
+result += " coloured ";
         } else {
-            result += " black&White";
-        }
+result += " black&White";
+        }//
 
-        //  return movieTittle + directorName + movieGenre + yearCreated + movieLengthInMinutes + movieColour;
+ return movieTittle + directorName + movieGenre + yearCreated + movieLengthInMinutes + movieColour;
 
-        return result;
     }
 
 }
@@ -91,5 +90,22 @@ public class Movie {
 //                '}';
 
 
+/*String result = " ";result +="Title;´:" + " " + movieTittle + "/n" + "  Genre:" + " " +  movieGenre + "/n " + " Director:"+ " " + directorName +
+        "/n " + " Year:"+  " " + yearCreated + " /n" + " Duration:  " + movieLengthInMinutes+ " min /n "+ " Is the movie in colour? "+ " " + movieColour;
+        if (movieColour==true) {
+result += " coloured ";
+        } else {
+result += " black&White";
+        }//
+
+//  return movieTittle + directorName + movieGenre + yearCreated + movieLengthInMinutes + movieColour;*/
 
 
+/*public String toString() {
+        String colourYesorNo= movieColour?"is movie in colour: yes ": " is movie in colour: No";
+        return "Title;´:" + " " + movieTittle + "/n" + "  Genre:" + " " +  movieGenre + "/n " + " Director:"+ " " + directorName +
+                "/n " + " Year:"+  " " + yearCreated + " /n" + " Duration:  " + movieLengthInMinutes+ " min /n "+ " Is the movie in colour? "+ " " + movieColour;
+
+    }
+
+}*/

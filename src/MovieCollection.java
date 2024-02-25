@@ -1,21 +1,21 @@
 import java.util.ArrayList;
 
-public abstract class MovieCollection {
+public class MovieCollection {
 
-    ArrayList<Movie> movieCollection1;// er er contructoren fra class Movie indhentet.
+    private ArrayList<Movie> movieCollection1;// er er contructoren fra class Movie indhentet.
 
     //Contructor: Det er den ny contructor der skal indholde information fra class Movie. Den skal bagefter over i den næste classe som er en Controller.
 
 // My movielist
 
-    public void MovieCollection() {
+    public  MovieCollection() {
         movieCollection1 = new ArrayList<>();
         movieCollection1.add(new Movie(" WHO TF DID I MARRY", " ReesaTeesa", "Drama/Horror", 2024, 120, true));
         movieCollection1.add(new Movie("WHO TF DID I MARRY", "RessaTeesa", "Drama/Horror", 2024, 120, true));
         movieCollection1.add(new Movie("Surviving Legion", "Reesa Teesa", "Drama/Horror", 2026, 45, true));
     }
 
-    public String AddMovie(String movieTittle, String directorName, String yearCreated, int movieLengthInMinutes, int movieColour, boolean movieGenre) {
+    public String AddMovie(String movieTittle, String movieGenre, String directorName, int yearCreated, int movieLengthInMinutes, boolean movieColour) {
         Movie newMovie = new Movie(movieTittle, directorName, movieGenre, yearCreated, movieLengthInMinutes, movieColour);
         return movieTittle + " is added to the collection";
     }
@@ -45,20 +45,19 @@ public abstract class MovieCollection {
 
     //As a movie enthusiast I want to search for a specific movie so that I can see details about it.
 //method
-    public String SearchMovie(String tittle) {
-        boolean MovieInMovieList = false;
+    public void SearchMovie(String tittle) {
+        boolean hasfound = false;
         System.out.println("Search results can be seen below.");
         for (Movie m : movieCollection1) {
-            if (m.getMovieTittle().toLowerCase().contains(tittle)) ;
-            System.out.println(m.toString());
-            MovieInMovieList = true;
+            if (m.getMovieTittle().toLowerCase().contains(tittle.toLowerCase())) ;
+            System.out.println(m);
+            hasfound = true;
 
         }
-        if (!MovieInMovieList) {
+        if (!hasfound) {
             System.out.println(" The requested movie is not part of the collection");
         }
 
-        return " try new search";
     }
 }
 

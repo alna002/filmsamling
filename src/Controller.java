@@ -1,22 +1,20 @@
 public class Controller {
 // Denne class skal ikka har et main metode
-      private  MovieCollection movieCollection1; // Classen movie collection bliver indkaldt her.
+       MovieCollection movieCollection1; // Classen movie collection bliver indkaldt her.
 
         //contructor  // her er contructoren fra class movieCollection.
        public Controller() {
-movieCollection1 = new MovieCollection() {
-};;
-
+movieCollection1 = new MovieCollection();
         }
 
         //metode: // i den method har jeg indtastet atributerne fra movieCollection.
 
-        public void addnewMovietoMovieList (String movieTittle, String directorName,int yearCreated,
-        int movieLengthInMinutes, boolean movieColour, String movieGenre ){
-           movieCollection1.AddMovie(movieTittle,movieGenre, directorName, yearCreated, movieLengthInMinutes, movieColour);
+        public String addnewMovietoMovieList (String movieTittle,String movieGenre , String directorName,int yearCreated,
+        int movieLengthInMinutes, boolean movieColour){
+         return   movieCollection1.AddMovie(movieTittle,movieGenre, directorName,yearCreated, movieLengthInMinutes, movieColour);
 
         }
-
+//getters.
     public void getList() {
         movieCollection1.MovieList();
     }

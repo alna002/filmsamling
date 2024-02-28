@@ -1,9 +1,17 @@
-import java.util.Scanner;
+
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
+    public  static void main (String[] args){
+      Userinterface ui = new Userinterface();
+      ui.startProgram();
+
+  }
+
+}
+/*
+public void Menu()/
         Scanner scanner = new Scanner(System.in);
 
         Controller Moviecontroller = new Controller();
@@ -26,18 +34,21 @@ public class Main {
 
             scanner.nextLine(); // user answers here
 
-            boolean moviecolour = false;
+
+
+
+            boolean movieColour = false;
             if (UserChoice == 1) {
                 System.out.println("Give the information about the movie to creat your personal movie collection");
 
                 System.out.println("movie tittle");
                 String movieTittle = scanner.nextLine();
 
-                System.out.println("movie genre");
-                String movieGenre = scanner.nextLine();
-
                 System.out.println("movie director");
                 String movieDirector = scanner.nextLine();
+
+                System.out.println("movie genre");
+                String movieGenre = scanner.nextLine();
 
                 System.out.println("year created");
                 int yearCreated = scanner.nextInt();
@@ -45,12 +56,14 @@ public class Main {
                 System.out.println("movie length in minmutes");
                 int movieLengthInMinutes = scanner.nextInt();
                 scanner.nextLine();
+
                 System.out.println("Is the movie in colour or black&White? Answer Yes for colour or No for Black&White");
                 String isinColour = scanner.nextLine().toLowerCase();
-                boolean movieColour = false;
 
-                if (isinColour.equals("yes")) {
-                    movieColour = true;
+String UserAnswer= scanner.nextLine();
+                boolean moviecolour;
+                if (UserAnswer.equals("yes")) {
+                  movieColour= true;
 
                 }
 
@@ -62,13 +75,12 @@ public class Main {
                 System.out.println("Year created:" + " " + movie.getYearCreated());
                 System.out.println("Movie Duration:" +" " + movie.getMovieLengthInMinutes());
                 System.out.println("Movie in colour:" +" " + movie.getmovieColour());
-
-
                 System.out.println("Movie successfully added to the collection ");
 
             }
             if (UserChoice == 2) {
                 Moviecontroller.getList();
+
             } else if (UserChoice == 3) {
                 System.out.println(" What is the tittle of the movie you are searching for?");
                 String tittle = scanner.nextLine(); // the user writes the tittle to search
@@ -88,7 +100,7 @@ public class Main {
     }
 
 }
-
+*/
 
 //Eksempel på hvordan man laver et valg om film er i fave eller ik, med if statement.
          /*    String isInColour;

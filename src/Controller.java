@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Controller {
 // Denne class skal ikka har et main metode
        MovieCollection movieCollection1; // Classen movie collection bliver indkaldt her.
@@ -19,15 +21,18 @@ movieCollection1 = new MovieCollection();
         movieCollection1.MovieList();
     }
 
-    public void searchMovie(String title) {
+    public int searchMovie(String title) {
         movieCollection1.SearchMovie(title);
+        return 0;
     }
 
     public String removeMovie(String title) {
         return movieCollection1.removeMoviefromList(title);
     }
 
-
+public String editMovie(String tittle, ArrayList<String> editValues){
+    return movieCollection1.editMovie(tittle,editValues);
+}
         /* //Arrylist
         Controller<Movie> moviesArryList = new Controller<Movie>();
 */

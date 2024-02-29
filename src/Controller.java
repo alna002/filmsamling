@@ -1,41 +1,71 @@
 import java.util.ArrayList;
-
-public class Controller {
 // Denne class skal ikka har et main metode
-       MovieCollection movieCollection1; // Classen movie collection bliver indkaldt her.
+public class Controller {
 
-        //contructor  // her er contructoren fra class movieCollection.
-       public Controller() {
-movieCollection1 = new MovieCollection();
-        }
+    MovieCollection movieCollection; // Classen movie collection bliver indkaldt her.
 
-        //metode: // i den method har jeg indtastet atributerne fra movieCollection.
-
-        public String addnewMovietoMovieList (String movieTittle,String movieGenre , String directorName,int yearCreated,
-        int movieLengthInMinutes, boolean movieColour){
-         return   movieCollection1.AddMovie(movieTittle,movieGenre, directorName,yearCreated, movieLengthInMinutes, movieColour);
-
-        }
-//getters.
-    public void getList() {
-        movieCollection1.MovieList();
+    //contructor  // her er contructoren fra class movieCollection.
+    public Controller() {
+        movieCollection = new MovieCollection();
     }
 
-    public int searchMovie(String title) {
-        movieCollection1.SearchMovie(title);
-        return 0;
+    //metode: // i den method har jeg indtastet atributerne fra movieCollection.
+
+    public String AddMovie(String movieTittle, String movieGenre, String directorName, int yearCreated,
+                                         int movieLengthInMinutes, boolean movieColour) {
+        return movieCollection.AddMovie(movieTittle, movieGenre, directorName, yearCreated, movieLengthInMinutes, movieColour);
+
+    }
+
+    //getters.
+    public void getList() {
+
+        movieCollection.MovieList();
+    }
+
+    public String searchMovie(String title) {
+       // System.out.println("from controller" + title);
+        movieCollection.SearchMovie(title);
+        return title;
+
     }
 
     public String removeMovie(String title) {
-        return movieCollection1.removeMoviefromList(title);
+        return movieCollection.removeMoviefromList(title);
     }
 
-public String editMovie(String tittle, ArrayList<String> editValues){
-    return movieCollection1.editMovie(tittle,editValues);
+
+    public String editMovie(String title, ArrayList<String> editValues) {
+        return movieCollection.editMovie(title, editValues);
+    }
+
 }
-        /* //Arrylist
+/*String title;
+    /*public boolean Editmovie(String tittle, Movie updatedMovie) {
+   Movie movieToEdit = searchMovie (String tittle);
+        if (movieToEdit != null) {
+            movieToEdit.setTitle(updatedMovie.getTittle());
+            movieToEdit.setGenre(updatedMovie.getMovieGenre());
+            movieToEdit.setDirector(updatedMovie.getDirectorName());
+            movieToEdit.setLengthInMinutes(updatedMovie.getMovieLengthInMinutes());
+            movieToEdit.setYearCreated(updatedMovie.getYearCreated());
+            movieToEdit.setmovieColour(updatedMovie.getmovieColour());
+            boolean b = true;
+            return b;
+        }
+
+
+        return false;
+        public void EditMovie(String tittle){
+ *
+        movieCollection1.editMovie(tittle);
+    }
+    }*/
+
+
+        /*  } //Arrylist
         Controller<Movie> moviesArryList = new Controller<Movie>();
 */
 
-    }
+
 

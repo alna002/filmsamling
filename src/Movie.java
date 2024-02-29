@@ -15,7 +15,7 @@ public class Movie {
 
     //contructor
 
-    public Movie(String movieTittle, String directorName, String movieGenre, int yearCreated, int movieLengthInMinutes, boolean movieColour) {
+    public Movie(String Tittle, String directorName, String movieGenre, int yearCreated, int movieLengthInMinutes, boolean movieColour) {
         this.Tittle = Tittle;
         this.movieGenre = movieGenre;
         this.directorName = directorName;
@@ -85,15 +85,15 @@ public String setTitle(String title) {
 
     @Override
     public String toString() {
-        String result = " ";result +="Title;´:" + " " + Tittle + "/n" + "  Genre:" + " " +  movieGenre + "/n " + " Director:"+ " " + directorName +
+       /* String result = " ";result +="Title;´:" + " " + Tittle + "/n" + "  Genre:" + " " +  movieGenre + "/n " + " Director:"+ " " + directorName +
         "/n " + " Year:"+  " " + yearCreated + " /n" + " Duration:  " + movieLengthInMinutes+ " min /n "+ " Is the movie in colour? "+ " " + movieColour;
         if (movieColour==true) {
 result += " coloured ";
         } else {
 result += " black&White";
-        }//
+        }//*/
 
- return Tittle + directorName + movieGenre + yearCreated + movieLengthInMinutes + movieColour;
+ return Tittle + " " + directorName + " " + movieGenre + " " + yearCreated + " " +movieLengthInMinutes + " " +movieColour;
 
     }
 

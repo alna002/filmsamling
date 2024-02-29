@@ -2,17 +2,18 @@ import java.util.ArrayList;
 
 public class MovieCollection {
 
-    private ArrayList<Movie> movieCollection1;// er er contructoren fra class Movie indhentet.
 
     //Contructor: Det er den ny contructor der skal indholde information fra class Movie. Den skal bagefter over i den næste classe som er en Controller.
+    private ArrayList<Movie> movieCollection;// er er contructoren fra class Movie indhentet.
+
+
 
 // My movielist
-
     public MovieCollection() {
-        movieCollection1 = new ArrayList<>();
-        movieCollection1.add(new Movie(" WHO TF DID I MARRY", " ReesaTeesa", "Drama/Horror", 2024, 120, true));
-        movieCollection1.add(new Movie("WHO TF DID I MARRY", "RessaTeesa", "Drama/Horror", 2024, 120, true));
-        movieCollection1.add(new Movie("Surviving Legion", "Reesa Teesa", "Drama/Horror", 2026, 45, true));
+        movieCollection = new ArrayList<>();
+        movieCollection.add(new Movie("WHO TF DID I MARRY", " ReesaTeesa", "Drama/Horror", 2024, 120, true));
+        movieCollection.add(new Movie("WHO TF DID I MARRY", "RessaTeesa", "Drama/Horror", 2024, 120, true));
+        movieCollection.add(new Movie("Surviving Legion", "Reesa Teesa", "Drama/Horror", 2026, 45, true));
 
     }
 
@@ -24,7 +25,7 @@ public class MovieCollection {
     //As a movie enthusiast I want to see a list of all movies so that I can get an overview of my collection.
     public void MovieList() {
         System.out.println("List of movies");
-        for (Movie m : movieCollection1) {
+        for (Movie m : movieCollection) {
             System.out.println(m.toString());
         }
 
@@ -32,11 +33,11 @@ public class MovieCollection {
 
     // removing the movie from the list
     public String removeMoviefromList(String title) {
-        for (int i = 0; i <= movieCollection1.size(); i++) {
-            Movie m = movieCollection1.get(i);
+        for (int i = 0; i <= movieCollection.size(); i++) {
+            Movie m = movieCollection.get(i);
             if (m.getTittle().equalsIgnoreCase(title)) {
-                String removedMovieTitle = movieCollection1.get(i).getTittle();
-                movieCollection1.remove(i);
+                String removedMovieTitle = movieCollection.get(i).getTittle();
+                movieCollection.remove(i);
                 return removedMovieTitle + " has been removed!";
             }
 
@@ -47,14 +48,15 @@ public class MovieCollection {
 
     //As a movie enthusiast I want to search for a specific movie so that I can see details about it.
 //method
-    public void SearchMovie(String tittle) {
+    public void SearchMovie(String title) {
         boolean hasfound = false;
         System.out.println("Search results can be seen below.");
-        for (Movie m : movieCollection1) {
-            if (m.getTittle().toLowerCase().contains(tittle.toLowerCase())) ;
-            System.out.println(m);
-            hasfound = true;
+        for (Movie m : movieCollection) {
+            if (m.getTittle().toLowerCase().contains(title.toLowerCase())) {
 
+                System.out.println(m);
+                hasfound = true;
+            }
         }
         if (!hasfound) {
             System.out.println(" The requested movie is not part of the collection");
@@ -64,6 +66,34 @@ public class MovieCollection {
 
 // The user wants to edit movie
 public String editMovie(String title, ArrayList<String> editValues) {
+    if(editValues.size() < 6) {
+        System.out.println(" You have to insert all the values to edit the movie");
+    }
+
+    for( Movie m : movieCollection) {
+        if(m.getTittle().toLowerCase().equalsIgnoreCase(title)) {
+            m.setTitle(editValues.get(0).trim());
+            m.setDirector(editValues.get(1).trim());
+            m.setGenre(editValues.get(2).trim());
+            m.setYearCreated(Integer.parseInt(editValues.get(3).trim()));
+            m.setLengthInMinutes(Integer.parseInt(editValues.get(4).trim()));
+            m.setmovieColour(!(editValues.get(5).trim()).equalsIgnoreCase("no"));
+
+            break;
+
+        }
+        String edited = " has been edited";
+
+    }
+    /*return "Movie " + title + " has been edited!\n";*/
+    return title;
+}
+
+}
+
+
+
+/*public String editMovie(String title, ArrayList<String> editValues) {
     if(editValues.size() < 6) {
         return " You have to insert all the values to edit the movie";
     }
@@ -84,12 +114,6 @@ public String editMovie(String title, ArrayList<String> editValues) {
     }
     return "Movie " + title + " has been edited!\n";
 }
-
-}
-
-
-
-
 
 // movie list med normal Arry.
   /*  private Movie[] movieList;

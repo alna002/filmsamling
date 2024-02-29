@@ -2,56 +2,65 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Userinterface {
-//public  static void main(String[] args) {}
+    //public  static void main(String[] args) {}
     Controller movieController;
-        Scanner scanner = new Scanner(System.in);
-   public Userinterface() {
-            movieController = new Controller();
-        }
+    Scanner scanner = new Scanner(System.in);
 
-        boolean movieColour = false;
-        public void startProgram () {
-            int UserChoice = 0;
-Menu();
-            while (UserChoice != 5) {
-                UserChoice = scanner.nextInt();
+    public Userinterface() {
+        movieController = new Controller();
+    }
 
-                if (UserChoice == 1) {
-                    addMovie();
+    boolean movieColour = false;
+final int Sentinal = 6;
 
-                }
-                if (UserChoice == 2) {
-                    movieController.getList();
+    public void startProgram() {
+        int UserChoice = 0;
 
-                } else if (UserChoice == 3) {
-                    searchMovie();
+        while (UserChoice!=Sentinal){
+            Menu();
+            UserChoice = scanner.nextInt();
+            scanner.nextLine();
+            if (UserChoice == 1) {
+                addMovie();
+
+            }
+           else if (UserChoice == 2) {
+                MovieList();
+
+            } else if (UserChoice == 3) {
+                searchMovie();
                     /*System.out.println(" What is the tittle of the movie you are searching for?");
                     String tittle = scanner.nextLine(); // the user writes the tittle to search
                     movieController.searchMovie(tittle);*/
-                } // the tittle will be searched in the movie list.
-                else if (UserChoice == 4) {
-                    System.out.println(" which movie tittle do you want to remove?");
+            } // the tittle will be searched in the movie list.
+            else if (UserChoice == 4) {
+                    /*System.out.println(" which movie tittle do you want to remove?");
                     String tittle = scanner.nextLine();
-                    movieController.removeMovie(tittle);
+                    movieController.removeMovie(tittle);*/
+                RemoveMovie();
 
-                } else if (UserChoice == 5) {
-                    System.out.println(" Exit");
-                }
+            } else if (UserChoice == 5) {
+                editMovie();
+
+
+            } else if (UserChoice == 6) {
+                System.out.println(" You are exiting the program");
             }
+        }
         }
 
         private void Menu () {
 
-            Scanner scanner = new Scanner(System.in);
             System.out.println(" Welcome to this cool movie collection");
             System.out.println("Type the following commands to add, search,remove & edit the collection");
             System.out.println(" 1: Add Movie");
             System.out.println("2: Movie Collection");
             System.out.println("3: Search for a movie within the collection");
             System.out.println("4: Remove movie from the collection ");
-            System.out.println("5:Exit the program ");
+            System.out.println("5: Edit movie");
+            System.out.println("6:Exit the program ");
             System.out.println(" Enter your choice");
-            // UserChoice = scanner.nextInt();
+            //UserChoice = scanner.nextInt();
             // scanner.nextLine(); //
         }
 
@@ -62,7 +71,7 @@ Menu();
 
             System.out.println("movie tittle");
             String movieTittle = scanner.nextLine();
-            scanner.nextLine();
+            /*scanner.nextLine();*/
 
             System.out.println("movie genre");
             String movieGenre = scanner.nextLine();
@@ -83,12 +92,13 @@ Menu();
             String UserAnswer = scanner.nextLine();
             boolean moviecolour;
             if (UserAnswer.equals("yes")) {
-                movieColour = true ;
+                movieColour = true;
 
-            }else{
+            } else {
             }
+
             Movie newMovie = new Movie(movieTittle, movieDirector, movieGenre, yearCreated, movieLengthInMinutes, movieColour);
-            System.out.println(movieController.addnewMovietoMovieList(movieTittle, movieGenre, movieDirector, yearCreated, movieLengthInMinutes, movieColour));
+            System.out.println(movieController.AddMovie(movieTittle, movieGenre, movieDirector, yearCreated, movieLengthInMinutes, movieColour));
         }
 
         private void searchMovie () {
@@ -96,12 +106,40 @@ Menu();
             String movieTittle = scanner.nextLine();
             movieController.searchMovie(movieTittle);
         }
-String tittle;
+        String tittle;
 
         private void editMovie () {
-            System.out.println(" type the movie tittle you want to edit ");
+            System.out.println(" type in  the movie tittle you want to edit ");
+
             String titleEdit = scanner.nextLine();
-            int searhResult = movieController.searchMovie(titleEdit);
+            movieController.searchMovie(titleEdit);
+            ArrayList<String> editValues = new ArrayList<>();
+            System.out.println( "you have to type information about the movie" );
+            System.out.println("movie tittle");
+            String newmovieTittle = scanner.nextLine();
+            editValues.add(newmovieTittle);
+
+            System.out.println("movie director");
+            String newmovieDirector = scanner.nextLine();
+            editValues.add(newmovieTittle);
+
+            System.out.println("movie genre");
+            String newmovieGenre = scanner.nextLine();
+            editValues.add(newmovieTittle);
+
+            System.out.println("year created");
+            int newyearCreated = scanner.nextInt();
+            editValues.add(newmovieTittle);
+            scanner.nextLine();
+            System.out.println("movie length in minmutes");
+            int newmovieLengthInMinutes = scanner.nextInt();
+            editValues.add(newmovieTittle);
+            scanner.nextLine();
+
+            System.out.println("Is the movie in colour or black&White? Answer Yes for colour or No for Black&White");
+            String newmovieColour = scanner.nextLine().toLowerCase();
+            editValues.add(newmovieTittle);
+            System.out.println(" Movie information has been successfully changed ");
 
 
         }
@@ -112,9 +150,9 @@ String tittle;
 
         public void RemoveMovie () {
             System.out.println(" which movie tittle do you want to remove?");
-            String tittle = scanner.nextLine();
+            String removetittle = scanner.nextLine();
             movieController.removeMovie(tittle);
-
+            movieController.searchMovie(removetittle);
         }
 
     }
